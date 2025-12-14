@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://f5co6t3kidhq"]
+
+[ext_resource type="Script" path="res://3StepCheckButton.gd" id="1_ivop7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ssnr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pexyf"]
+
+[sub_resource type="Theme" id="Theme_v0b6b"]
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_4ssnr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_pexyf")
+
+[node name="3StepCheckButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -685.0
+offset_bottom = -599.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ivop7")
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = -23.0
+offset_right = 28.0
+grow_horizontal = 2
+text = "Header"
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 1
+offset_left = -42.0
+offset_top = 21.0
+offset_right = 58.0
+offset_bottom = 44.0
+text = "reeeeee"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_top = 21.0
+offset_right = 49.5
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "reeeeee"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -58.0
+offset_top = 21.0
+offset_right = 42.0
+offset_bottom = 44.0
+grow_horizontal = 0
+text = "reeeeee"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LeftButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = -22.0
+offset_top = -8.0
+offset_right = 38.0
+offset_bottom = 52.0
+focus_mode = 0
+flat = true
+
+[node name="MiddleButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 52.0
+grow_horizontal = 2
+focus_mode = 0
+flat = true
+
+[node name="RightButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = -8.0
+offset_right = 22.0
+offset_bottom = 52.0
+grow_horizontal = 0
+focus_mode = 0
+flat = true
+
+[node name="Slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme = SubResource("Theme_v0b6b")
+max_value = 2.0
+tick_count = 3
+ticks_on_borders = true
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MiddleButton" to="." method="_on_middle_button_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

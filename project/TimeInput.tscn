@@ -1,0 +1,531 @@
+[gd_scene load_steps=12 format=3 uid="uid://cayegsw010rfa"]
+
+[ext_resource type="Script" path="res://TimeInput.gd" id="1_n4ic2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyq4b"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_cviu2"]
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_oyq4b")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5l76s"]
+
+[sub_resource type="Theme" id="Theme_ct2fh"]
+LineEdit/constants/minimum_character_width = 1
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5l76s")
+
+[sub_resource type="Theme" id="Theme_2ijp3"]
+LineEdit/constants/minimum_character_width = 1
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5l76s")
+
+[sub_resource type="Theme" id="Theme_62cqy"]
+LineEdit/constants/minimum_character_width = 2
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_5l76s")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7opuq"]
+
+[sub_resource type="Theme" id="Theme_53nbg"]
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_7opuq")
+
+[sub_resource type="Image" id="Image_w0prh"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 153, 178, 178, 178, 166, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 166, 178, 178, 178, 151, 255, 255, 255, 0, 255, 255, 255, 0, 178, 178, 178, 166, 178, 178, 178, 217, 178, 178, 178, 179, 184, 184, 184, 18, 255, 255, 255, 0, 255, 255, 255, 0, 175, 175, 175, 19, 178, 178, 178, 179, 178, 178, 178, 217, 178, 178, 178, 165, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 179, 179, 179, 180, 175, 175, 175, 19, 175, 175, 175, 19, 179, 179, 179, 180, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 181, 178, 178, 178, 181, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 177, 177, 177, 179, 178, 178, 178, 217, 178, 178, 178, 217, 177, 177, 177, 179, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 184, 184, 184, 18, 178, 178, 178, 165, 178, 178, 178, 165, 180, 180, 180, 17, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 12,
+"mipmaps": false,
+"width": 12
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_t6drc"]
+image = SubResource("Image_w0prh")
+
+[node name="TimeInput" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 170.0
+offset_bottom = 62.0
+script = ExtResource("1_n4ic2")
+
+[node name="HH∶MM∶SS" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="LineEdit" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme = SubResource("Theme_cviu2")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="hours" type="LineEdit" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -15.5
+offset_right = -39.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Hours (Integer 0-999)"
+theme = SubResource("Theme_ct2fh")
+placeholder_text = "HH"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="colon1" type="Label" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -15.5
+offset_right = -33.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="minutes" type="LineEdit" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -15.5
+offset_right = 5.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Minutes (Integer 0-59)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "MM"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="colon2" type="Label" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -15.5
+offset_right = 11.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="seconds" type="LineEdit" parent="HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 11.0
+offset_top = -15.5
+offset_right = 39.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Seconds (Integer 0-59)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "SS"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="YYYY-MM-DD HH∶MM∶SS" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme = SubResource("Theme_cviu2")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="YYYY-MM-DD" type="Control" parent="YYYY-MM-DD HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -42.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="years" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -15.5
+offset_right = -18.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Year (Integer 0-9999)"
+theme = SubResource("Theme_62cqy")
+placeholder_text = "YYYY"
+alignment = 1
+max_length = 4
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="hyphon1" type="Label" parent="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.5
+offset_right = -12.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="months" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -15.5
+offset_right = 26.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Month (Integer 1-12)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "MM"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="hyphon2" type="Label" parent="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.0
+offset_top = -15.5
+offset_right = 32.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="days" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -15.5
+offset_right = 64.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Day (Integer 1-31)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "DD"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="HH∶MM∶SS" type="Control" parent="YYYY-MM-DD HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+offset_right = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hours" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -15.5
+offset_right = -21.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Hours (Integer 0-999)"
+theme = SubResource("Theme_ct2fh")
+placeholder_text = "HH"
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="colon1" type="Label" parent="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -15.5
+offset_right = -15.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="minutes" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Minutes (Integer 0-59)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "MM"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="colon2" type="Label" parent="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -15.5
+offset_right = 29.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = ":"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="seconds" type="LineEdit" parent="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = -15.5
+offset_right = 57.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Seconds (Integer 0-59)"
+theme = SubResource("Theme_2ijp3")
+placeholder_text = "SS"
+alignment = 1
+max_length = 2
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="Seconds" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="LineEdit" parent="Seconds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme = SubResource("Theme_cviu2")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="seconds" type="LineEdit" parent="Seconds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -15.5
+offset_right = 42.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Seconds (Integer 0-9999999999)"
+theme = SubResource("Theme_53nbg")
+placeholder_text = "Seconds"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+flat = true
+select_all_on_focus = true
+
+[node name="Dropdown" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MenuButton" type="MenuButton" parent="Dropdown"]
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 31.0
+icon = SubResource("ImageTexture_t6drc")
+icon_alignment = 1
+item_count = 2
+popup/item_0/text = "TIme"
+popup/item_0/checkable = 1
+popup/item_0/checked = true
+popup/item_0/id = 0
+popup/item_1/text = "Seconds"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+
+[connection signal="text_changed" from="HH∶MM∶SS/hours" to="." method="_on_Time_hours_text_changed"]
+[connection signal="text_changed" from="HH∶MM∶SS/minutes" to="." method="_on_Time_minutes_text_changed"]
+[connection signal="text_changed" from="HH∶MM∶SS/seconds" to="." method="_on_Time_seconds_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD/years" to="." method="_on_Date_years_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD/months" to="." method="_on_Date_months_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/YYYY-MM-DD/days" to="." method="_on_Date_days_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS/hours" to="." method="_on_Date_hours_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS/minutes" to="." method="_on_Date_minutes_text_changed"]
+[connection signal="text_changed" from="YYYY-MM-DD HH∶MM∶SS/HH∶MM∶SS/seconds" to="." method="_on_Date_seconds_text_changed"]
+[connection signal="text_changed" from="Seconds/seconds" to="." method="_on_Sec_seconds_text_changed"]

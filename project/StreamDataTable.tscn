@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://yhro73iopkqh"]
+
+[ext_resource type="Script" path="res://StreamDataTable.gd" id="1_71hma"]
+[ext_resource type="Texture2D" uid="uid://bn6bbhta2tf81" path="res://assets/youtube.png" id="2_xgmgo"]
+[ext_resource type="Texture2D" uid="uid://85jpny7knasy" path="res://assets/link.png" id="3_f3pqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2h77f"]
+
+[node name="StreamDataTable" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 254.0
+offset_bottom = 128.0
+script = ExtResource("1_71hma")
+
+[node name="StreamNumberLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.179688
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+text = "Stream #"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlatformIcon" type="TextureRect" parent="StreamNumberLabel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -9.5
+offset_right = 19.0
+offset_bottom = 9.5
+grow_vertical = 2
+texture = ExtResource("2_xgmgo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="OpenStreamUrlButton" type="Button" parent="StreamNumberLabel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -9.5
+offset_bottom = 9.5
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "Open in browser"
+focus_mode = 0
+icon = ExtResource("3_f3pqe")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+anchor_top = 0.179688
+anchor_right = 1.0
+anchor_bottom = 0.757813
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2h77f")
+placeholder_text = "Data goes here..."
+editable = false
+wrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.188976
+anchor_top = 0.828125
+anchor_right = 0.811024
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Select data field..."
+item_count = 8
+popup/item_0/text = "Started at utc"
+popup/item_0/id = 0
+popup/item_1/text = "Ended at/current time utc"
+popup/item_1/id = 1
+popup/item_2/text = "Uptime"
+popup/item_2/id = 2
+popup/item_3/text = "Is live"
+popup/item_3/id = 3
+popup/item_4/text = "Platform"
+popup/item_4/id = 4
+popup/item_5/text = "Stream title"
+popup/item_5/id = 5
+popup/item_6/text = "Streamer name"
+popup/item_6/id = 6
+popup/item_7/text = "Raw input"
+popup/item_7/id = 7
+
+[node name="Button" type="Button" parent="MenuButton"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 16
+button_mask = 0
+
+[connection signal="pressed" from="StreamNumberLabel/OpenStreamUrlButton" to="." method="_on_open_stream_url_button_pressed"]

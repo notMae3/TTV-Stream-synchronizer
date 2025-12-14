@@ -1,0 +1,98 @@
+# - input section content
+	# - input line for stream 1
+		# - have a button on the left to toggle platform
+		# - yt "Youtube shortcode"
+		# - ttv "Twitch streamer / video ID"
+	# - input line for stream 2
+		# - -||-
+
+# - TimeInput
+	# - pad 0 on lost focus
+	# - set all lineedit min character width to eg. 2 then manually resize it to fit better than it does using min character width 3
+	# - add description to all lineedits
+	# - add limit character stuff to all line edits
+	# - possible split the scrit stuff into three (TimeInputs children) (nope)
+	# - disable the options that arent relevant
+	# - clear all fields on load, prolly do func call from TimeInput.gd to the relevant node
+	# - force limit value on lost focus, not while typing
+
+# - gotta redo the single timestamp sticks to show time for both streams at timestamp
+
+# - remember to hook up the refresh token button
+# 	- and the time remaining label (make red if 00:00:00)
+
+# - remember to limit the amount of days in a month in TimeInput
+# 	make the "max value" key a callable? design in python prolly
+# 	- feb 29 if year % 4 == 0
+
+# - have a reset button for section resizers
+# 	- or just left click to reset?
+# 	- or left click on the buttons to open a popup menu with option "Reset", would have 3 of those for each resize button
+# 	- the Reset button does different things depending on which resizer it stems from
+# 		- Vertical: Reset vertical
+# 		- Horizontal: Reset horizontal
+# 		- Multidimentional: Reset vertical and horizontal
+
+# - make the 3stepcheckbutton hitbox bigger by adding 3 invis buttons behind it but in front of the labels to increase hitbox size
+
+# - have the submit button be disabled until all required values have been submitted
+	# - if relative_to_utc and Date + time is selected: make sure the day is valid
+		# func = lambda m, y : 30 + ((m + (1 if m > 7 else 0)) % 2) + (-1 if m == 2 and not y % 4 else -2 if m == 2 else 0)
+	# - have a label next to the button with why its disabled (nope)
+		# "All required fields have not been filled"
+		# "The day {d} is invalid with month = {m} and year = {y}"
+		# "Certain api credentials are missing"
+		# "The twitch api access token is expired"
+
+# - add background to InnerTimestampStick labels to help it from OuterTimestampStick vertical sticks
+	# - is there a way to get if nodes are overlapping? only add background then?
+	# - use partially transparent bg that can be seen on top of orange, but not normal bg?
+
+# - on run exe: clear everything thats not default from data and overlap sections
+
+# - pressing tab while inserting time value stops the padding from activating
+
+# - something is scuffed with relative time values for outer timestamp sticks
+
+# - have a little icon to show if its a twitch or yt stream
+
+# - make some solution to one streambox being very tiny compared to the other, thus making the labels go past the right edge
+
+# - have some banner decend from above displaying error messages
+	# config submit button for this
+	# display the error messages from exe here
+	# go through all "print..." commands and have them throw errors
+
+# - apiinput nodes are scuffed when resized, prolly gotta do custom anchoring to fix
+
+# - set up tab support for stream and time inp
+# 	(its built into godot i think)
+
+# - scuff in default time inp when writing "123" in hours
+
+# - add loading symbols when saving creds, refreshing token and fetching stream data
+# 	maybe dedicate a section of the data section
+
+# - add a check when calculating the size of the streamboxes (nope, let the user feel stupid by the messed up graphics)
+# 	if the boxes would be smaller than their minimum size then throw error that says something like "Streams are too far apart"
+# 	make sure to tell the user when each stream starts
+
+# - inner stick vert alignment scuffed
+
+# - make gray dot same as clear color?
+
+# - what happens if i do timestamp at 24h (should change value_delta depending on this
+
+# - press enter to submit? maybe only if on the last timeinput text field?
+
+# - update the tooltip "Relative to: {_}".format(UTC/Stream 1/Stream 2)
+
+# - when switching the relative to stream only reset the value if input type Time goes to Date
+
+
+# - Have click on time stamp stick open its data in data section and not switch between date and relative.
+  # - Default thing in data section is showing the streams (with title + author?) + the regular url. 
+  # - There’s also a label where the timestamp stick data would go that says “click on a timestamp stick to show more information”. 
+  # - Have the timestamp stick tooltip be “show more”? 
+  # - Potentially split the data section into 2 sections. 
+	  # - 1 for stream info and one for timestamp info + “open stream at timestamp”

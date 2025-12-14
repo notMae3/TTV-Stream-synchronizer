@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=3 uid="uid://4br1rdh8mopk"]
+
+[ext_resource type="Script" path="res://StreamBox.gd" id="1_0tvky"]
+[ext_resource type="Texture2D" uid="uid://cmqnlu8em5w87" path="res://assets/twitch.png" id="2_e43jk"]
+[ext_resource type="Texture2D" uid="uid://bn8irc5m7hyjv" path="res://assets/red_dot.png" id="3_biirl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wm143"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbm02"]
+font_size = 11
+
+[node name="StreamBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -352.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_0tvky")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25098, 0.266667, 0.298039, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = -132.0
+offset_bottom = 31.0
+grow_horizontal = 2
+tooltip_text = "reeee"
+mouse_filter = 1
+text = "Title label"
+label_settings = SubResource("LabelSettings_wm143")
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="ColorRect" type="ColorRect" parent="TitleLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25098, 0.266667, 0.298039, 1)
+
+[node name="subtext" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -23.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="subtext"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -5.0
+offset_right = 12.0
+offset_bottom = 7.0
+grow_vertical = 2
+texture = ExtResource("2_e43jk")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="StreamerLabel" type="Label" parent="subtext"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_right = -132.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "reeee"
+mouse_filter = 1
+text = "Streamer label"
+label_settings = SubResource("LabelSettings_pbm02")
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="ColorRect" type="ColorRect" parent="subtext/StreamerLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25098, 0.266667, 0.298039, 1)
+
+[node name="LiveDot" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="LiveDot"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+texture = ExtResource("3_biirl")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="LiveDot/TextureRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.3, 2.3)
+pivot_offset = Vector2(32, 32)
+color = Color(0.25098, 0.266667, 0.298039, 1)
+
+[node name="UptimeLabel" type="Label" parent="LiveDot"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_vertical = 2
+tooltip_text = "reeee"
+mouse_filter = 1
+text = "000:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="LiveDot/UptimeLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.25098, 0.266667, 0.298039, 1)

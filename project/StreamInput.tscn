@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqw1o5heccbv4"]
+
+[ext_resource type="Script" path="res://StreamInput.gd" id="1_hoa0q"]
+[ext_resource type="Texture2D" uid="uid://cmqnlu8em5w87" path="res://assets/twitch.png" id="2_mxmab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3h60"]
+
+[node name="StreamInput" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -712.0
+offset_bottom = -617.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hoa0q")
+
+[node name="PlatformButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_vertical = 2
+tooltip_text = "Toggle platform"
+focus_mode = 0
+icon = ExtResource("2_mxmab")
+icon_alignment = 1
+expand_icon = true
+
+[node name="InputLineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q3h60")
+placeholder_text = "Twitch streamer (\"xQc\") or video ID (\"2186735246\")"
+context_menu_enabled = false
+
+[connection signal="pressed" from="PlatformButton" to="." method="_on_platform_button_pressed"]
+[connection signal="text_changed" from="InputLineEdit" to="." method="_on_input_line_edit_text_changed"]

@@ -1,0 +1,228 @@
+[gd_scene load_steps=10 format=3 uid="uid://dijkxt6wwmmvi"]
+
+[ext_resource type="Texture2D" uid="uid://85jpny7knasy" path="res://assets/link.png" id="1_f3k0i"]
+[ext_resource type="Script" path="res://TimestampStickDataTable.gd" id="1_gvo1l"]
+[ext_resource type="Texture2D" uid="uid://bijg6i0ergosx" path="res://assets/shuffle.png" id="1_w7osp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj6sw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hal0e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_jgeh0"]
+LineEdit/font_sizes/font_size = 1
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_dj6sw")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_hal0e")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0et0h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tml4u"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_ceedv"]
+LineEdit/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+LineEdit/colors/font_uneditable_color = Color(0.87451, 0.87451, 0.87451, 1)
+LineEdit/font_sizes/font_size = 12
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_0et0h")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_tml4u")
+
+[node name="TimestampStickDataTable" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -898.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gvo1l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.179688
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ToggleFormatDataButton" type="Button" parent="Label"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -9.5
+offset_right = 19.0
+offset_bottom = 9.5
+grow_vertical = 2
+tooltip_text = "Toggle data formatting"
+focus_mode = 0
+icon = ExtResource("1_w7osp")
+icon_alignment = 1
+expand_icon = true
+
+[node name="OpenStreamUrlButton" type="Button" parent="Label"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -9.5
+offset_bottom = 9.5
+grow_horizontal = 0
+grow_vertical = 2
+tooltip_text = "Open stream in browser at timestamp"
+focus_mode = 0
+icon = ExtResource("1_f3k0i")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Data" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.234375
+anchor_right = 1.0
+anchor_bottom = 0.859375
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Relative" type="Control" parent="Data"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="LineEdit" parent="Data/Relative"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jgeh0")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="Data/Relative"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.175
+anchor_right = 0.49
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Relative timestamp:"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Data/Relative"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.175
+anchor_right = 0.996063
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ceedv")
+text = "123456798"
+alignment = 1
+editable = false
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Unix" type="Control" parent="Data"]
+layout_mode = 1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="LineEdit" parent="Data/Unix"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jgeh0")
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Label" type="Label" parent="Data/Unix"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.175
+anchor_right = 0.49
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Unix timestamp:"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Data/Unix"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.175
+anchor_right = 0.996063
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ceedv")
+text = "13:20:36 2024-05-23"
+alignment = 1
+editable = false
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Label/ToggleFormatDataButton" to="." method="_on_toggle_format_data_button_pressed"]
+[connection signal="pressed" from="Label/OpenStreamUrlButton" to="." method="_on_open_stream_url_button_pressed"]

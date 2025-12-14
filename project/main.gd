@@ -115,7 +115,7 @@ func _fetch_stream_data(input_values):
 	# { "accessToken": "abc123", "accessToken expiry timestamp": 1720221113.628, "apiKey": "r", "clientID": "e", "clientSecret": "f" }
 	# note: accessToken expiry timestamp was checked in the submit button check_if_should_throw_error func  so no need to check it here
 	
-	# -yt ENXtjz8EMxs -ttv 2180802166 -clientID zew526hmunzkzourkxgtqj2nihxe56 -accessToken 3toj0iwg194oqin0ypfiu2sqenerlh -apiKey AIzaSyC7_E7jgCc2g1D72FcS_ywkgprZWTy-pl8
+	# -yt ENXtjz8EMxs -ttv 2180802166 -clientID [clientID] -accessToken [accessToken] -apiKey [apiKey]
 	
 	var args = [
 		"-%s" % [stream_1["platform"]], stream_1["value"],
